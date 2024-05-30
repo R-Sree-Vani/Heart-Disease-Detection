@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Detection and Prediction</title>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/027/855/855/original/human-heart-ai-generative-png.png" type="image/icon type" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 0 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            
+        }
+        .navbar a:hover, .navbar a.active {
+            background-color: #45a049;
+        }
+        .hero {
+            position: relative;
+            /*background-image: url('https://www.shutterstock.com/image-illustration/3d-illustration-anatomy-human-heart-260nw-481031137.jpg'); */
+            background-image: url('https://sciencesensei.com/wp-content/uploads/2020/07/human-heart.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 75vh;
+            color: white;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+.container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .about {
+        background-color: #f4f4f4;
+        padding: 50px 20px;
+    }
+
+    .about h2 {
+        color: #333;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .about p {
+        color: #666;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+.details {
+        background-color: #fff;
+        padding: 50px 20px;
+    }
+
+    .details h2 {
+        color: #333;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .details p, .details ul {
+        color: #666;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .details ul {
+        text-align: left;
+        list-style-position: inside;
+    }
+
+    .details li {
+        margin-bottom: 10px;
+    }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="{{url_for('man')}}" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="{{url_for('pred_page')}}">Predict</a>
+    <a href="#details">Details</a>
+</div>
+
+<div class="hero">
+    <div class="hero-text">
+        <h1>Heart Disease Detection and Prediction</h1>
+        <p>Empowering you with the tools to understand and improve your heart health.</p>
+        <a href="{{url_for('pred_page')}}" class="btn">Start Prediction</a>
+    </div>
+</div>
+
+<div class="about" id="about">
+    <div class="container">
+        <h2>About Our Project</h2>
+        <p>Heart disease is the leading cause of death worldwide. Our project aims to leverage cutting-edge technology to empower individuals with actionable insights into their heart health. By using advanced machine learning algorithms, we provide users with predictions that can help in early detection and prevention of heart disease.</p>
+        <p>Our platform is designed to be user-friendly, allowing anyone to easily understand their risk factors and take proactive steps towards a healthier heart. We believe in the power of knowledge and technology to transform lives and are committed to making heart health accessible to everyone.</p>
+    </div>
+</div>
+
+
+<div class="details" id="details">
+    <div class="container">
+        <h2>Understanding the Dataset</h2>
+        <p>The UCI Heart Disease dataset is a comprehensive collection of data points that medical researchers and data scientists use to predict the presence of heart disease in patients. Here's a breakdown of key columns in the dataset:</p>
+        <ul>
+            <li><strong>Age:</strong> The age of the patient in years.</li>
+            <li><strong>Sex:</strong> The sex of the patient (1 = male; 0 = female).</li>
+            <li><strong>CP (Chest Pain Type):</strong> Indicates the type of chest pain experienced (1 = typical angina, 2 = atypical angina, 3 = non-anginal pain, 4 = asymptomatic).</li>
+            <li><strong>Trestbps (Resting Blood Pressure):</strong> The patient's resting blood pressure (in mm Hg on admission to the hospital).</li>
+            <li><strong>Chol (Serum Cholestoral):</strong> The patient's cholesterol measurement in mg/dl.</li>
+            <li><strong>Fbs (Fasting Blood Sugar):</strong> Indicates if the patient's fasting blood sugar is > 120 mg/dl (1 = true; 0 = false).</li>
+            <li><strong>RestECG (Resting Electrocardiographic Results):</strong> Resting electrocardiographic results (0 = normal, 1 = having ST-T wave abnormality, 2 = showing probable or definite left ventricular hypertrophy).</li>
+            <li><strong>Thalach (Maximum Heart Rate Achieved):</strong> The maximum heart rate achieved by the patient.</li>
+            <li><strong>Exang (Exercise Induced Angina):</strong> Indicates if exercise induced angina (1 = yes; 0 = no).</li>
+            <li><strong>Oldpeak:</strong> ST depression induced by exercise relative to rest.</li>
+            <li><strong>Slope:</strong> The slope of the peak exercise ST segment.</li>
+            <li><strong>Ca (Number of Major Vessels Colored):</strong> The number of major vessels colored by fluoroscopy (0-3).</li>
+            <li><strong>Thal:</strong> A blood disorder called thalassemia (1 = normal; 0 = fixed defect; 2 = reversible defect).</li>
+            <li><strong>Num:</strong> Diagnosis of heart disease (1-4 = presence, 0 = absence).</li>
+        </ul>
+        <p>This dataset is widely used for predictive modeling and is instrumental in developing machine learning models to assist in early detection and prevention of heart disease.</p>
+    <ul>
+        <li><strong>Age:</strong> The age of the patient in years.</li>
+<li><strong> Anaemia:</strong> A binary variable indicating whether the patient has a decrease in red blood cells or hemoglobin (0: No, 1: Yes).</li>
+<li><strong>Creatinine_phosphokinase (CPK):</strong> Level of the CPK enzyme in the blood (mcg/L). This enzyme is found in the heart, brain, and skeletal muscles. High levels can indicate muscle damage, including the heart.</li>
+<li><strong>Diabetes:</strong> Whether the patient has diabetes (0: No, 1: Yes).</li>
+<li><strong>Ejection_fraction:</strong>Percentage of blood leaving the heart at each contraction. Lower values are indicative of worse heart function.</li>
+<li><strong>High_blood_pressure (Hypertension): </strong> If the patient has hypertension (0: No, 1: Yes).</li>
+<li><strong> Platelets:</strong> Platelet count in the blood (kiloplatelets/mL). Platelets are involved in blood clotting.</li>
+<li><strong> Serum_creatinine:</strong> Level of serum creatinine in the blood (mg/dL). This is a waste product from muscle metabolism and is an important indicator of renal function.</li>
+<li><strong>Serum_sodium: </strong> Level of serum sodium in the blood (mEq/L). This is an important indicator of electrolyte balance and nerve/muscle function.</li>
+<li><strong> Sex: </strong> Biological sex of the patient (0: Female, 1: Male).</li>
+<li><strong>Smoking: </strong> If the patient smokes or not (0: No, 1: Yes).</li>
+<li><strong>DEATH_EVENT:</strong> Whether the patient died during the follow-up period (0: No, 1: Yes).</li>
+    </ul>
+    <p>This dataset compiles the medical records of patients who had heart failure, with various features recorded for each patient. It is often used to predict mortality caused by heart failure. </p>
+    </div>
+
+</div>
+</body>
+</html>

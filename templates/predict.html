@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Form</title>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/027/855/855/original/human-heart-ai-generative-png.png" type="image/icon type" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50; /* Adjusted to match the shade of green */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50; /* Adjusted to match the shade of green */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Heart Disease Prediction</h1>
+    <form action="{{url_for('home')}}" method="POST">
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="a" required>
+        </div>
+
+        <div class="form-group">
+            <label for="sex">Sex</label>
+            <select id="sex" name="b" required>
+                <option value="">Select Gender</option>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="cp">Chest Pain Type (cp)</label>
+            <select id="cp" name="c" required>
+                <option value="">Select Chest Pain Type</option>
+                <option value="0">Asymptotic</option>
+                <option value="1">Atypical Angina</option>
+                <option value="2">Non-Anginal</option>
+                <option value="3">Typical Angina</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="trestbps">Resting Blood Pressure (trestbps)</label>
+            <input type="number" id="trestbps" name="d" min="0" max="300" step="1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="chol">Serum Cholestoral in mg/dl (chol)</label>
+            <input type="number" id="chol" name="e" min="0" max="750" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="fbs">Fasting Blood Sugar > 120 mg/dl (fbs)</label>
+            <select id="fbs" name="f" required>
+                <option value="">Select Fasting Blood Sugar</option>
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            
+<label for="restecg">Resting Electrocardiographic Results (restecg)</label>
+<select id="restecg" name="g" required>
+<option value="">Select ECG Results</option>
+<option value="0">Left ventricular hypertrophy</option>
+<option value="1">Normal</option>
+<option value="2">ST-T Abnormality</option>
+</select>
+</div>
+    <div class="form-group">
+        <label for="thalach">Maximum Heart Rate Achieved (thalach)</label>
+        <input type="number" id="thalach" name="h" min="50" max="220" step="1" required>
+    </div>
+
+    <div class="form-group">
+        <label for="exang">Exercise Induced Angina (exang)</label>
+        <select id="exang" name="i" required>
+            <option value="">Select</option>
+            <option value="0">False</option>
+            <option value="1">True</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="oldpeak">ST Depression Induced by Exercise Relative to Rest (oldpeak)</label>
+        <input type="text" id="oldpeak" min="-3" max="7.5" step="0.1" name="j" required>
+    </div>
+
+    <div class="form-group">
+        <label for="slope">The Slope of The Peak Exercise ST Segment (slope)</label>
+        <select id="slope" name="k" required>
+            <option value="">Select Slope</option>
+            <option value="0">Downsloping</option>
+            <option value="1">Flat</option>
+            <option value="2">Upsloping</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="ca">Number of Major Vessels (0-3) Colored by Flourosopy (ca)</label>
+        <select id="ca" name="l" required>
+        <option value="">Select No. of major vessels colored</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="thal">Thalassemia (thal)</label>
+        <select id="thal" name="m" required>
+            <option value="">Select Thalassemia Type</option>
+            <option value="0">Fixed Defect</option>
+            <option value="1">Normal</option>
+            <option value="2">Reversable Defect</option>
+        </select>
+    </div>
+
+    <button type="submit">Predict</button>
+</form>
+</div>
+</body>
+</html>
+

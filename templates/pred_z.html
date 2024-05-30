@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/027/855/855/original/human-heart-ai-generative-png.png" type="image/icon type" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            /*background-color: #e8f5e9; /* Light green background */
+            background-color: #c7edca;
+            border-left: 5px solid #4CAF50; /* Dark green border */
+            margin: 20px 0;
+            padding: 15px;
+            width:60%;
+            border-radius: 5px;
+        }
+        .container h1, .container h2 {
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .content {
+            display: none;
+            margin: 10px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+.card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 90%;
+            max-width: 700px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .card-text {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<center>
+<div class="container">
+    <h1>Heart Disease Prediction Result</h1>
+    <h2>No Heart Disease Detected (Stage 0)</h2>
+    <p>Your results indicate that you are currently at Stage 0 for heart disease, which suggests no significant signs of heart disease. While this is encouraging news, it's important to maintain a healthy lifestyle to ensure your heart remains healthy.</p>
+</div>
+
+
+<!-- Buttons for toggling sections -->
+<button class="button" onclick="toggleVisibility_P()">Precautions</button>
+<button class="button" onclick="toggleVisibility_D()">Doctors to be Consulted</button><br>
+<a href="{{url_for('man')}}"><button class="button" style="background-color: #75a4f0;">Home</button></a>
+
+<div id="precautions" class="content">
+    <h2>Precautions</h2>
+    <div class="card">
+    <img src="https://images.herzindagi.info/image/2023/Nov/personal-care-tips.jpg" alt="Healthy Life Style" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Healthy Lifestyle</h2>
+        <p class="card-text">Adopt a heart-healthy diet, engage in regular physical activity, maintain a healthy weight, and avoid smoking.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://www.apolloclinic.com/blog/wp-content/uploads/2022/10/179518-Why-should-one-go-for-a-regular-health-checkup_.jpg" alt="Regular Checkup" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Regular Check-ups</h2>
+        <p class="card-text">Regular health screenings to monitor blood pressure, cholesterol levels, and other risk factors for heart disease.</p>
+    </div>
+</div>
+</div>
+
+<div id="doctors" class="content">
+    <h2>Doctors to be Consulted</h2>
+    <div class="card">
+    <img src="https://www.rafflesmedicalgroup.com/wp-content/uploads/2020/07/GP-to-Family-Physician.jpg" alt="Family Doctor" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">General Practitioner/Family Doctor</h2>
+        <p class="card-text">Annual check-ups to monitor overall health, including heart disease risk factors like blood pressure, cholesterol, and glucose levels.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://myhbpartners.com/wp-content/uploads/2021/03/Preventative-HealthCare.jpg" alt="Preventive Care Consultation" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Preventive Care Consultation</h2>
+        <p class="card-text">Discuss lifestyle modifications for heart health, including diet, exercise, and smoking cessation.</p>
+    </div>
+</div>
+</div>
+</center>
+
+<script>
+function toggleVisibility_P() {
+    var element = document.getElementById("precautions");
+    var otherelement = document.getElementById("doctors");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement.style.display = "none";
+    }
+}
+function toggleVisibility_D() {
+    var element = document.getElementById("doctors");
+    var otherelement = document.getElementById("precautions");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

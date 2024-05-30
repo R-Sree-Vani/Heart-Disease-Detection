@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/027/855/855/original/human-heart-ai-generative-png.png" type="image/icon type" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+           /* background-color: #e8f5e9; /* Light green background */
+           background-color: #c7edca;
+            border-left: 5px solid #4CAF50; /* Dark green border */
+            margin: 20px 0;
+            padding: 15px;
+            width:60%;
+            border-radius: 5px;
+        }
+        .container h1, .container h2 {
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .content {
+            display: none;
+            margin: 10px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+.card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 90%;
+            max-width: 700px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .card-text {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<center>
+<div class="container">
+    <h1>Heart Disease Predicted!!</h1>
+    <h2> Mild Coronary Artery Disease (Stage 1)</h2>
+    <p>Your results indicate that you are currently at Stage 1 for heart disease, which suggests the presence of mild heart disease. This stage often involves some narrowing of the heart's arteries, which could lead to future health issues if not addressed. It's crucial to follow a heart-healthy lifestyle and consult with healthcare professionals for appropriate medical advice and treatment plans.</p>
+</div>
+
+
+<!-- Buttons for toggling sections -->
+<button class="button" onclick="toggleVisibility_P()">Precautions</button>
+<button class="button" onclick="toggleVisibility_D()">Doctors to be Consulted</button>
+<button class="button" onclick="toggleVisibility_C()">Causes</button>
+<button class="button" onclick="toggleVisibility_S()">Symptoms</button>
+<a href="{{url_for('pred_fail')}}"><button class="button">Predict Failure</button></a><br>
+<a href="{{url_for('man')}}"><button class="button" style="background-color: #75a4f0;">Home</button></a>
+
+<!-- <p>{% for key, value in report.items(): %}
+   {{ key }} : {{ value }}
+{% endfor %}</p> -->
+
+<div id="precautions" class="content">
+    <h2>Precautions</h2>
+    <div class="card">
+    <img src="https://content.health.harvard.edu/wp-content/uploads/2024/01/b89e20a3-0e68-42e1-b4fe-782f3355a11b.jpg">
+    <div class="card-content">
+        <h2 class="card-title">Healthy diet (low in saturated fats and cholesterol)</h2>
+        <p class="card-text">Adopting a healthy diet is crucial for managing Stage 1 heart disease. It's recommended to follow a diet low in saturated fats and cholesterol to help reduce the buildup of plaque in the arteries, which can lead to further heart complications.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://www.hopkinsmedicine.org/-/media/images/health/3_-wellness/heart-health/exercise-and-the-heart-teaser-image.jpg" alt="Regular Physical Activity" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Regular physical activity</h2>
+        <p class="card-text">Engaging in regular physical activity is essential for managing and improving Stage 1 heart disease. Exercise helps to improve heart health by strengthening the heart muscle, improving blood circulation, and helping to maintain a healthy weight.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://vinmec-prod.s3.amazonaws.com/images/20210218_023210_714329_bo-thuoc-la.max-800x800.jpg" alt="Smoking Cessation" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Smoking cessation</h2>
+        <p class="card-text">Quitting smoking is one of the most effective actions you can take for your heart health. Smoking is a major risk factor for heart disease, as it damages the lining of your arteries, reduces the amount of oxygen in your blood, and increases blood pressure and heart rate.</p>
+
+    </div>
+</div>
+</div>
+
+<div id="doctors" class="content">
+    <h2>Doctors to be Consulted</h2>
+    <div class="card">
+    <img src="https://www.maayaspecialityhospitals.com/assets/images/service/cardiology.jpg" alt="Cardiologist" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Cardiologist</h2>
+        <p class="card-text">Early consultation with a cardiologist is key for managing Stage 1 heart disease effectively. A cardiologist can provide you with a comprehensive evaluation, guide you through necessary lifestyle adjustments, and recommend further medical treatment if needed. They can also monitor your condition over time to prevent progression.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlPZXAfJ0M6bI1NR-JtgusDoN7wyLriUos2w&usqp=CAU" alt="Dietitian" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Dietitian</h2>
+        <p class="card-text">For individuals with Stage 1 heart disease, consulting a registered dietitian can be a pivotal step in managing the condition effectively. A dietitian can provide personalized dietary advice tailored to your specific health needs, helping to ensure that your diet supports heart health without compromising on nutrition or taste.</p>
+    </div>
+</div>
+</div>
+
+<div id="causes" class="content">
+<div class="card">
+    <img src="https://d2jx2rerrg6sh3.cloudfront.net/images/news/ImageForNews_739217_16765945250995307.jpg" alt="High Blood Pressure" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">High blood pressure</h2>
+        <p class="card-text">High blood pressure, or hypertension, is a common condition in individuals with Stage 1 heart disease and can increase the risk of heart attack, stroke, and other heart-related complications. Effective management of high blood pressure is crucial for maintaining heart health.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://setu.in/cdn/shop/articles/f8f80ab5-7ac6-434d-9b87-06cb87bb37ba_5_970x.jpg?v=1651834106" alt="High Cholesterol" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">High cholesterol</h2>
+        <p class="card-text">High cholesterol is a significant risk factor for the development and progression of heart disease. It can lead to the buildup of plaque in the arteries, increasing the risk of heart attack and stroke. Managing high cholesterol is essential for individuals with Stage 1 heart disease. </p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://hips.hearstapps.com/hmg-prod/images/collage-heart-smoking-1-1527882362.jpg?crop=0.941xw:0.798xh;0,0.0470xh&resize=1200:*" alt="Smoking" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Smoking</h2>
+        <p class="card-text">Smoking is a major risk factor for developing heart disease. It damages the lining of the arteries, leading to a buildup of plaque, which can cause heart disease. Smoking also increases the risk of blood clots, raises blood pressure, and reduces the oxygen-carrying capacity of the blood. Quitting smoking is one of the most powerful steps you can take to reduce your risk of heart disease and improve your overall health. </p>
+    </div>
+</div>
+</div>
+
+<div id="symptoms" class="content">
+<div class="card">
+    <img src="https://www.caringseniorservice.com/hubfs/Untitled%20design%20%2899%29.png" alt="Symptoms" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">May be asymptomatic or minimal symptoms</h2>
+        <p class="card-text">This early stage often involves risk factors or conditions that have not yet led to significant heart damage or severe symptoms.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://www.uchicagomedicine.org/-/media/images/ucmc/forefront/channel-pages/heart-and-vascular/universal/man-with-chest-pain-hero.jpg?h=385&as=1&hash=E190AC4D0F79F801B938E013B26774EA" alt="Slight discomfort upon exertion:" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Slight discomfort upon exertion</h2>
+        <p class="card-text">These symptoms can indicate the beginning of heart-related issues, often due to early changes in the heart or blood vessels that have not yet severely impacted heart function.</p>
+    </div>
+</div>
+
+</div>
+</center>
+
+<script>
+function toggleVisibility_P() {
+    var element = document.getElementById("precautions");
+    var otherelement1 = document.getElementById("doctors");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+function toggleVisibility_D() {
+    var element = document.getElementById("doctors");
+    var otherelement1 = document.getElementById("precautions");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+
+function toggleVisibility_C() {
+    var element = document.getElementById("causes");
+    var otherelement1 = document.getElementById("precautions");
+    var otherelement2 = document.getElementById("doctors");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+function toggleVisibility_S() {
+    var element = document.getElementById("symptoms");
+    var otherelement1 = document.getElementById("doctors");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("precautions");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

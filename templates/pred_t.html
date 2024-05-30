@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/027/855/855/original/human-heart-ai-generative-png.png" type="image/icon type" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            /*background-color: #e8f5e9; /* Light green background */
+            background-color: #c7edca;
+            border-left: 5px solid #4CAF50; /* Dark green border */
+            margin: 20px 0;
+            padding: 15px;
+            width:60%;
+            border-radius: 5px;
+        }
+        .container h1, .container h2 {
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .content {
+            display: none;
+            margin: 10px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+.card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 90%;
+            max-width: 700px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .card-text {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<center>
+<div class="container">
+    <h1>Heart Disease Predicted!!</h1>
+    <h2> Angina Pectoris(Stage 2)</h2>
+    <p>Your results indicate that you are currently at Stage 2 for heart disease.It disease represents a progression from the early stages of cardiovascular disease. At this stage, symptoms become more noticeable and may affect daily activities. The condition requires careful management and treatment to prevent further progression and complications.</p>
+</div>
+
+
+<!-- Buttons for toggling sections -->
+<button class="button" onclick="toggleVisibility_P()">Precautions</button>
+<button class="button" onclick="toggleVisibility_D()">Doctors to be Consulted</button>
+<button class="button" onclick="toggleVisibility_C()">Causes</button>
+<button class="button" onclick="toggleVisibility_S()">Symptoms</button>
+<a href="{{url_for('pred_fail')}}"><button class="button">Predict Failure</button></a><br>
+<a href="{{url_for('man')}}"><button class="button" style="background-color: #75a4f0;">Home</button></a>
+
+<div id="precautions" class="content">
+    <h2>Precautions</h2>
+    <div class="card">
+    <img src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2659784.jpg">
+    <div class="card-content">
+        <h2 class="card-title">Avoiding heavy or stressful exertion</h2>
+        <p class="card-text">For individuals diagnosed with Stage 2 heart disease, it's crucial to avoid activities that involve heavy or stressful exertion. Engaging in strenuous activities can put additional strain on the heart, potentially leading to worsening of heart disease symptoms or even triggering a heart event.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/318/318217/beta-blockers.jpg" alt="Medication adherence" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Medication adherence (e.g., nitrates, beta-blockers)</h2>
+        <p class="card-text">Be aware of the names of your medications, their purposes, and how they should be taken. If you have any questions or concerns about your medications, consult your healthcare provider or pharmacist.</p>
+    </div>
+</div>
+
+</div>
+
+<div id="doctors" class="content">
+    <h2>Doctors to be Consulted</h2>
+    <div class="card">
+    <img src="https://www.maayaspecialityhospitals.com/assets/images/service/cardiology.jpg" alt="Cardiologist" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Cardiologist</h2>
+        <p class="card-text">Early consultation with a cardiologist is key for managing Stage 1 heart disease effectively. A cardiologist can provide you with a comprehensive evaluation, guide you through necessary lifestyle adjustments, and recommend further medical treatment if needed. They can also monitor your condition over time to prevent progression.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://cdn2.hubspot.net/hubfs/281126/Cardiac%20Rehab%20Phases.jpeg" alt="Cardiac rehabilitation specialist" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Cardiac rehabilitation specialist</h2>
+        <p class="card-text">For those diagnosed with Stage 2 heart disease, participating in a cardiac rehabilitation program can be a key component of your treatment plan. Cardiac rehabilitation specialists play a crucial role in helping you recover and improve your heart health through personalized exercise programs, education on heart-healthy living, and support in making lifestyle changes.</p>
+    </div>
+</div>
+</div>
+
+<div id="causes" class="content">
+<div class="card">
+    <img src="https://d2jx2rerrg6sh3.cloudfront.net/images/news/ImageForNews_739217_16765945250995307.jpg" alt="High Blood Pressure" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Severe High blood pressure</h2>
+        <p class="card-text">High blood pressure, or hypertension, is a common condition in individuals with Stage 1 heart disease and can increase the risk of heart attack, stroke, and other heart-related complications. Effective management of high blood pressure is crucial for maintaining heart health.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://c8.alamy.com/comp/2G6263T/heart-attack-and-atherosclerosis-stages-healthy-and-unhealthy-arteries-cholesterol-in-the-blood-vessels-2G6263T.jpg" alt="High Cholesterol" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Severe High cholesterol</h2>
+        <p class="card-text">High cholesterol is a significant risk factor for the development and progression of heart disease. It can lead to the buildup of plaque in the arteries, increasing the risk of heart attack and stroke. Managing high cholesterol is essential for individuals with Stage 1 heart disease. </p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://hips.hearstapps.com/hmg-prod/images/collage-heart-smoking-1-1527882362.jpg?crop=0.941xw:0.798xh;0,0.0470xh&resize=1200:*" alt="Smoking" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Severe Smoking</h2>
+        <p class="card-text">Smoking is a major risk factor for developing heart disease. It damages the lining of the arteries, leading to a buildup of plaque, which can cause heart disease. Smoking also increases the risk of blood clots, raises blood pressure, and reduces the oxygen-carrying capacity of the blood. Quitting smoking is one of the most powerful steps you can take to reduce your risk of heart disease and improve your overall health. </p>
+    </div>
+</div>
+</div>
+
+<div id="symptoms" class="content">
+<div class="card">
+    <img src="https://media.istockphoto.com/id/1437955756/photo/senior-man-athlete-having-heart-problems-during-jogging.webp?b=1&s=170667a&w=0&k=20&c=hxN1KVmS5kZ5QZxSHe6MbTsODTA63g-ttpwoGyb_ar4=">
+<div class="card-content">
+        <h2 class="card-title">Chest pain or discomfort, particularly with activity or stress</h2>
+        <p class="card-text">One of the hallmark symptoms of Stage 2 heart disease is experiencing chest pain or discomfort, particularly during physical activity or stressful situations. This symptom is medically known as angina pectoris and occurs when the heart muscle doesn't receive enough oxygen-rich blood due to narrowed coronary arteries. Here's what you need to know.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://img.freepik.com/premium-vector/shortness-breath-breathing-problems-asthma-concept-man-is-breathing-heavily-holding-onto_571637-159.jpg?w=360" alt="Shortness of breath" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Shortness of breath</h2>
+        <p class="card-text">Shortness of breath, medically known as dyspnea, is a common symptom in individuals with heart disease. It occurs when your heart is unable to pump blood efficiently to meet the body's needs, leading to inadequate oxygen delivery to your tissues. This can happen during physical activity, while at rest, or even when lying down, depending on the severity of your heart condition.</p>
+    </div>
+</div>
+
+</div>
+</center>
+
+<script>
+function toggleVisibility_P() {
+    var element = document.getElementById("precautions");
+    var otherelement1 = document.getElementById("doctors");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+function toggleVisibility_D() {
+    var element = document.getElementById("doctors");
+    var otherelement1 = document.getElementById("precautions");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+
+function toggleVisibility_C() {
+    var element = document.getElementById("causes");
+    var otherelement1 = document.getElementById("precautions");
+    var otherelement2 = document.getElementById("doctors");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+function toggleVisibility_S() {
+    var element = document.getElementById("symptoms");
+    var otherelement1 = document.getElementById("doctors");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("precautions");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

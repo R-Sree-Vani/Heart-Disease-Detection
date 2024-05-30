@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Failure Prediction Result</title>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/027/855/855/original/human-heart-ai-generative-png.png" type="image/icon type" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            /*background-color: #e8f5e9; /* Light green background */
+            background-color: #c7edca;
+            border-left: 5px solid #4CAF50; /* Dark green border */
+            margin: 20px 0;
+            padding: 15px;
+            width:60%;
+            border-radius: 5px;
+        }
+        .container h1, .container h2 {
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .content {
+            display: none;
+            margin: 10px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+.card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 90%;
+            max-width: 700px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .card-text {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<center>
+<div class="container">
+    <h1>Heart Failure Prediction Result</h1>
+    <h2>No Heart Failure Detected</h2>
+    <h5>(Death Event do not occurs)</h5>
+    <p>Your results indicate that there is no event of death. Please take all the necessary precautions.</p>
+</div>
+
+
+
+<a href="{{url_for('man')}}"><button class="button" style="background-color: #75a4f0;">Home</button></a>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Failure Prediction Form</title>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/027/855/855/original/human-heart-ai-generative-png.png" type="image/icon type" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50; /* Adjusted to match the shade of green */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50; /* Adjusted to match the shade of green */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Heart Failure Prediction</h1>
+    <form action="{{url_for('pred_failure')}}" method="POST">
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="a1" value={{age}} readonly required>
+        </div>
+
+        <div class="form-group">
+            <label for="anaemia">Anaemia (Decreased Blood Cells)</label>
+            
+            <select id="anaemia" name="b1" required>
+                <option value="">Select anaemia</option>
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="creatinine_phosphokinase">creatinine_phosphokinase (Level of CPK enzyme)</label>
+            <input type="number" id="creatinine_phosphokinase" name="c1" required>
+        </div>
+
+         <div class="form-group">
+            <label for="diabetes">Diabetes</label>
+            <select id="diabetes" name="d1" required>
+                <option value="">Select diabetes</option>
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="ejection_fraction">Ejection Fraction (Percentage of blood leaving the heart at each contraction.)</label>
+            <input type="number" id="ejection_fraction" name="e1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="high_blood_pressure">High Blood Pressure</label>
+            <select id="high_blood_pressure" name="f1" required>
+                <option value="">Select high_blood_pressure</option>
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label for="platelets">Platelets</label>
+            <input type="number" id="chol" name="g1" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="serum_creatinine">Serum_creatinine (waste product from muscle metabolism)</label>
+            <input type="number" id="serum_creatinine" name="h1" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="serum_sodium">Serum_sodium (indicator of electrolyte balance)</label>
+            <input type="number" id="serum_sodium" name="i1" required>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="sex">Sex</label>
+            <select id="sex" name="j1" required>
+                {% if gender == '1' %}
+                <option value="1">Male</option>
+                {%endif %}
+                {% if gender == '0' %}
+                <option value="0">Female</option>
+                {% endif %}
+                <!-- <option value="Male" readonly {% if gender == 'Male' %}selected{% endif %}>Male</option>
+        <option value="Female" readonly {% if gender == 'Female' %}selected{% endif %}>Female</option> -->
+                <!-- <option value="">Select sex</option>
+                <option value="0">Female</option>
+                <option value="1">Male</option> -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="smoking">Smoking</label>
+            <select id="smoking" name="k1" required>
+                <option value="">Select smoking</option>
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+        </div>
+        
+       <!-- <div class="form-group">
+            <label for="time">Time (Follow up period)</label>
+            <input type="number" id="time" name="l1" required>
+        </div> -->
+
+       
+
+
+            <button type="submit">Predict</button>
+</form>
+</div>
+</body>
+</html>
+

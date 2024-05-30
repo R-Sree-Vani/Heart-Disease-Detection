@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/027/855/855/original/human-heart-ai-generative-png.png" type="image/icon type" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            /*background-color: #e8f5e9; /* Light green background */
+            background-color: #c7edca;
+            border-left: 5px solid #4CAF50; /* Dark green border */
+            margin: 20px 0;
+            padding: 15px;
+            width:60%;
+            border-radius: 5px;
+        }
+        .container h1, .container h2 {
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .content {
+            display: none;
+            margin: 10px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+.card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 90%;
+            max-width: 700px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .card-text {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<center>
+<div class="container">
+    <h1>Heart Disease Predicted!!</h1>
+    <h2>Non-ST Segment Elevation Myocardial Infarction(Stage 3)</h2>
+    <p>Your results indicate that you are currently at Stage 3 for heart disease. It signifies a more advanced level of cardiovascular condition, where symptoms become more pronounced and can significantly impact an individual's quality of life. At this stage, the heart's ability to pump blood efficiently is further compromised, often due to more severe blockages in the coronary arteries or damage to the heart muscle. Understanding and managing this stage is crucial for mitigating symptoms and preventing further progression.</p>
+</div>
+
+
+<!-- Buttons for toggling sections -->
+<button class="button" onclick="toggleVisibility_P()">Precautions</button>
+<button class="button" onclick="toggleVisibility_D()">Doctors to be Consulted</button>
+<button class="button" onclick="toggleVisibility_C()">Causes</button>
+<button class="button" onclick="toggleVisibility_S()">Symptoms</button>
+<a href="{{url_for('pred_fail')}}"><button class="button">Predict Failure</button></a><br>
+<a href="{{url_for('man')}}"><button class="button" style="background-color: #75a4f0;">Home</button></a>
+
+<div id="precautions" class="content">
+    <h2>Precautions</h2>
+    <div class="card">
+    <img src="https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2021/05/GettyImages-1304002544_header-1024x575.jpg?w=1155&h=1528">
+    <div class="card-content">
+        <h2 class="card-title">Immediate medical intervention</h2>
+        <p class="card-text">Stage 3 heart disease represents a critical point where the condition has significantly progressed, and the risk of severe complications is high. Immediate medical intervention is often required to manage symptoms effectively, prevent further damage to the heart, and potentially save lives. Understanding when and why these interventions are necessary is crucial for individuals at this stage.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/318/318217/beta-blockers.jpg" alt="Medication adherence" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Medication adherence (e.g., nitrates, beta-blockers)</h2>
+        <p class="card-text">Be aware of the names of your medications, their purposes, and how they should be taken. If you have any questions or concerns about your medications, consult your healthcare provider or pharmacist.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://cdn.i-scmp.com/sites/default/files/styles/237x147/public/d8/images/canvas/2023/08/28/90069926-e69a-42a4-98f0-498d84a3d190_1126e908.jpg?itok=ikBPQDgc" alt="avoiding heavy exertion" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Avoiding heavy or stressful exertion</h2>
+        <p class="card-text">
+    For individuals with Stage 3 heart disease, the heart's ability to supply sufficient oxygen-rich blood during intense physical activity is significantly compromised. Avoiding activities that require heavy or stressful exertion is vital to prevent overloading the heart, which can lead to severe symptoms or even acute cardiac events.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://vinmec-prod.s3.amazonaws.com/images/20210218_023210_714329_bo-thuoc-la.max-800x800.jpg" alt="Smoking Cessation" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Smoking cessation</h2>
+        <p class="card-text">Quitting smoking is one of the most effective actions you can take for your heart health. Smoking is a major risk factor for heart disease, as it damages the lining of your arteries, reduces the amount of oxygen in your blood, and increases blood pressure and heart rate.</p>
+
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://content.health.harvard.edu/wp-content/uploads/2024/01/b89e20a3-0e68-42e1-b4fe-782f3355a11b.jpg">
+    <div class="card-content">
+        <h2 class="card-title">Healthy diet (low in saturated fats and cholesterol)</h2>
+        <p class="card-text">Adopting a healthy diet is crucial for managing Stage 1 heart disease. It's recommended to follow a diet low in saturated fats and cholesterol to help reduce the buildup of plaque in the arteries, which can lead to further heart complications.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://www.hopkinsmedicine.org/-/media/images/health/3_-wellness/heart-health/exercise-and-the-heart-teaser-image.jpg" alt="Regular Physical Activity" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Regular physical activity</h2>
+        <p class="card-text">Engaging in regular physical activity is essential for managing and improving Stage 1 heart disease. Exercise helps to improve heart health by strengthening the heart muscle, improving blood circulation, and helping to maintain a healthy weight.</p>
+    </div>
+</div>
+
+</div>
+
+<div id="doctors" class="content">
+    <h2>Doctors to be Consulted</h2>
+    <div class="card">
+    <img src="https://www.maayaspecialityhospitals.com/assets/images/service/cardiology.jpg" alt="Cardiologist" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Cardiologist</h2>
+        <p class="card-text">Early consultation with a cardiologist is key for managing Stage 1 heart disease effectively. A cardiologist can provide you with a comprehensive evaluation, guide you through necessary lifestyle adjustments, and recommend further medical treatment if needed. They can also monitor your condition over time to prevent progression.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://ninkatec.b-cdn.net/wp-content/uploads/2020/03/Pressure-Sores-Causes-Prevention-Care_Ninkatec-Blog-Article-Image-1024x536.jpg">
+    <div class="card-content">
+        <h2 class="card-title">Emergency medicine specialist</h2>
+        <p class="card-text">Stage 3 heart disease is marked by a significant progression of cardiovascular issues, which often necessitates immediate and expert medical attention. Emergency Medicine Specialists play a vital role in this context, offering frontline care for patients experiencing severe symptoms or complications related to heart disease.</p>
+    </div>
+</div>
+</div>
+
+<div id="causes" class="content">
+<div class="card">
+    <img src="https://setu.in/cdn/shop/articles/f8f80ab5-7ac6-434d-9b87-06cb87bb37ba_5_970x.jpg?v=1651834106" alt="High Cholesterol" alt="Coronary Artery Blockage" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Advanced coronary artery blockage</h2>
+        <p class="card-text">Stage 3 heart disease is characterized by advanced blockage in the coronary arteries, which can significantly impair blood flow to the heart muscle. This stage of heart disease indicates a critical juncture where the risk of heart attacks, heart failure, and other cardiovascular complications is notably increased.</p>
+    </div>
+</div>
+
+
+</div>
+
+<div id="symptoms" class="content">
+<div class="card">
+    <img src="https://manhattancardiology.com/wp-content/uploads/2022/11/chest-pain-1.png">
+<div class="card-content">
+        <h2 class="card-title">More severe chest pain, possibly at rest</h2>
+        <p class="card-text">In Stage 3 heart disease, individuals may experience more severe forms of chest pain, known as angina, which can occur even without physical exertion. This symptom is a red flag, indicating that the heart muscle is not receiving enough oxygen-rich blood due to narrowed or blocked coronary arteries.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3XBCXIw1l5BtM8yvw0xnJ8uGX_5y931zsDNRC-KP9zidWXFFHReZRilodV7qoVcED9_0&usqp=CAU" alt="Dizziness" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Dizziness</h2>
+        <p class="card-text">In the context of Stage 3 heart disease, dizziness is a concerning symptom that can indicate inadequate blood supply to the brain, among other potential causes. This stage of heart disease implies severe cardiovascular conditions that require careful management and urgent medical care.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://cdn.images.express.co.uk/img/dynamic/11/590x/Heart-attack-Sweating-is-a-sign-1452191.jpg?r=1624198558757" alt="Sweating" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Sweating</h2>
+        <p class="card-text">Stage 3 heart disease often presents with severe symptoms, including excessive sweating, even without physical exertion. This symptom can indicate a significant underlying cardiovascular problem, reflecting the heart's struggle to supply blood efficiently under the stress of advanced disease.</p>
+    </div>
+</div>
+
+</div>
+</center>
+
+<script>
+function toggleVisibility_P() {
+    var element = document.getElementById("precautions");
+    var otherelement1 = document.getElementById("doctors");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+function toggleVisibility_D() {
+    var element = document.getElementById("doctors");
+    var otherelement1 = document.getElementById("precautions");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+
+function toggleVisibility_C() {
+    var element = document.getElementById("causes");
+    var otherelement1 = document.getElementById("precautions");
+    var otherelement2 = document.getElementById("doctors");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+function toggleVisibility_S() {
+    var element = document.getElementById("symptoms");
+    var otherelement1 = document.getElementById("doctors");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("precautions");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

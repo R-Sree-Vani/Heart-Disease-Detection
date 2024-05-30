@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/027/855/855/original/human-heart-ai-generative-png.png" type="image/icon type" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #e8f5e9; /* Light green background */
+            border-left: 5px solid #4CAF50; /* Dark green border */
+            margin: 20px 0;
+            padding: 15px;
+            width:60%;
+            border-radius: 5px;
+        }
+        .container h1, .container h2 {
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .content {
+            display: none;
+            margin: 10px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+.card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 90%;
+            max-width: 700px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .card-text {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<center>
+<div class="container">
+    <h1>Heart Disease Predicted!!</h1>
+    <h2>ST Segment Elevation Myocardial Infarction(Stage 4)</h2>
+    <p>Your results indicate that you are currently at Stage 4 for heart disease. It is the most advanced form of heart disease, characterized by severe limitations due to cardiac symptoms or conditions. It typically involves significant blockages in the coronary arteries, leading to reduced blood flow to the heart muscle, and can result in heart failure or other life-threatening conditions.</p>
+</div>
+
+
+<!-- Buttons for toggling sections -->
+<button class="button" onclick="toggleVisibility_P()">Precautions</button>
+<button class="button" onclick="toggleVisibility_D()">Doctors to be Consulted</button>
+<button class="button" onclick="toggleVisibility_C()">Causes</button>
+<button class="button" onclick="toggleVisibility_S()">Symptoms</button>
+<a href="{{url_for('pred_fail')}}"><button class="button">Predict Failure</button></a><br>
+<a href="{{url_for('man')}}"><button class="button" style="background-color: #75a4f0;">Home</button></a>
+
+<div id="precautions" class="content">
+    <h2>Precautions</h2>
+    <div class="card">
+    <img src="https://www.jeffersonhealth.org/content/dam/health2021/images/photos/stock/people/clinical/man-heart-ultrasound.jpg">
+    <div class="card-content">
+        <h2 class="card-title">Emergency medical care</h2>
+        <p class="card-text">If you or someone you know is experiencing severe symptoms associated with Stage 4 heart disease, immediate medical attention is essential.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://www.verywellhealth.com/thmb/AuAjF19RaNjfHBakTmXGlDZItmY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1201091165-2599ff60c901407fb347daad9b6b54de.jpg" alt="Post-event rehabilitation" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Post-event rehabilitation</h2>
+        <p class="card-text">After experiencing a severe cardiac event, patients with Stage 4 heart disease require comprehensive rehabilitation to recover and improve their overall health and well-being.</p>
+    </div>
+</div>
+</div>
+
+<div id="doctors" class="content">
+    <h2>Doctors to be Consulted</h2>
+    <div class="card">
+    <img src="https://www.maayaspecialityhospitals.com/assets/images/service/cardiology.jpg" alt="Cardiologist" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Cardiologist</h2>
+        <p class="card-text">Early consultation with a cardiologist is key for managing Stage 1 heart disease effectively. A cardiologist can provide you with a comprehensive evaluation, guide you through necessary lifestyle adjustments, and recommend further medical treatment if needed. They can also monitor your condition over time to prevent progression.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://cdn2.hubspot.net/hubfs/281126/Cardiac%20Rehab%20Phases.jpeg" alt="Cardiac rehabilitation specialist" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Cardiac rehabilitation specialist</h2>
+        <p class="card-text">For those diagnosed with Stage 2 heart disease, participating in a cardiac rehabilitation program can be a key component of your treatment plan. Cardiac rehabilitation specialists play a crucial role in helping you recover and improve your heart health through personalized exercise programs, education on heart-healthy living, and support in making lifestyle changes.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://www.englewoodhealth.org/wp-content/uploads/2018/11/cariothoracic-surger-team.jpg">
+    <div class="card-content">
+        <h2 class="card-title">Cardiothoracic surgeon (for possible surgical intervention)</h2>
+        <p class="card-text">Stage 4 heart disease is the most severe form of heart disease, characterized by significant blockages in the coronary arteries and severe limitations due to cardiac symptoms. In some cases, surgical intervention may be necessary to improve heart function, relieve symptoms, and potentially save lives.</p>
+    </div>
+</div>
+</div>
+
+<div id="causes" class="content">
+<div class="card">
+    <img src="https://cf-images.us-east-1.prod.boltdns.net/v1/static/3850378299001/c68b5dd4-4762-43f8-a0ad-8c740b978209/e0df6f51-ef59-42e6-a463-9deed03d666e/768x432/match/image.jpg" alt="High Cholesterol" alt="Coronary Artery Blockage" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Complete blockage of one or more coronary arteries</h2>
+        <p class="card-text">Stage 4 heart disease represents the most advanced stage of heart disease and includes conditions where there is a complete blockage of one or more coronary arteries. This severe blockage restricts blood flow to the heart muscle, significantly increasing the risk of heart attack, heart failure, and other life-threatening cardiac conditions.</p>
+    </div>
+</div>
+
+
+</div>
+
+<div id="symptoms" class="content">
+<div class="card">
+    <img src="https://manhattancardiology.com/wp-content/uploads/2022/11/chest-pain-1.png">
+<div class="card-content">
+        <h2 class="card-title">Severe chest pain</h2>
+        <p class="card-text">Severe chest pain, often described as angina, is a hallmark symptom of Stage 4 heart disease. This advanced stage of heart disease indicates significant heart damage or blockages in the coronary arteries, leading to intense pain that can be a sign of a heart attack or imminent heart complications.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://image.myupchar.com/18857/webp/vomiting-after-eating-causes-and-treatment.webp"><div class="card-content">
+        <h2 class="card-title">Nausea</h2>
+        <p class="card-text">Nausea is a lesser-known yet significant symptom that can be associated with Stage 4 heart disease. In the context of heart disease, nausea is not merely a sign of digestive distress but can indicate severe cardiac issues, including heart attack or failure.Nausea in heart disease patients can result from reduced blood flow to the digestive system as the heart struggles to pump blood efficiently. This condition may also occur as a response to the stress of heart dysfunction on the body or as a side effect of medications used to treat heart disease.</p>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://img.freepik.com/premium-vector/shortness-breath-breathing-problems-asthma-concept-man-is-breathing-heavily-holding-onto_571637-159.jpg?w=360" alt="Shortness of breath" class="card-img">
+    <div class="card-content">
+        <h2 class="card-title">Shortness of breath</h2>
+        <p class="card-text">Shortness of breath, medically known as dyspnea, is a common symptom in individuals with heart disease. It occurs when your heart is unable to pump blood efficiently to meet the body's needs, leading to inadequate oxygen delivery to your tissues. This can happen during physical activity, while at rest, or even when lying down, depending on the severity of your heart condition.</p>
+    </div>
+</div>
+
+</div>
+</center>
+
+<script>
+function toggleVisibility_P() {
+    var element = document.getElementById("precautions");
+    var otherelement1 = document.getElementById("doctors");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+function toggleVisibility_D() {
+    var element = document.getElementById("doctors");
+    var otherelement1 = document.getElementById("precautions");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+
+function toggleVisibility_C() {
+    var element = document.getElementById("causes");
+    var otherelement1 = document.getElementById("precautions");
+    var otherelement2 = document.getElementById("doctors");
+    var otherelement3 = document.getElementById("symptoms");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+function toggleVisibility_S() {
+    var element = document.getElementById("symptoms");
+    var otherelement1 = document.getElementById("doctors");
+    var otherelement2 = document.getElementById("causes");
+    var otherelement3 = document.getElementById("precautions");
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+        otherelement1.style.display = "none";
+        otherelement2.style.display = "none";
+        otherelement3.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
